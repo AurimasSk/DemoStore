@@ -4,12 +4,36 @@ import LoadingDots from './LoadingDots';
 
 const Header = ({ loading }) => {
     return (
-        <nav>
-            <IndexLink to="/" activeClassName="active">Home</IndexLink>
-            {" | "}
-            <Link to="/about" activeClassName="active">About</Link>
-            {loading && <LoadingDots interval={100} dots={20} />}
-        </nav>
+        // <nav>
+        //     <IndexLink to="/" activeClassName="active">Home</IndexLink>
+        //     {" | "}
+        //     <Link to="/about" activeClassName="active">About</Link>
+        //     {loading && <LoadingDots interval={100} dots={20} />}
+        // </nav>
+        <div>
+            <nav className="navbar navbar-inverse navbar-fixed-top">
+                <div className="container-fluid">
+                    <div className="navbar-header">
+                        <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span className="sr-only">Toggle navigation</span>
+                            <span className="icon-bar"></span>
+                            <span className="icon-bar"></span>
+                            <span className="icon-bar"></span>
+                        </button>
+                        <a className="navbar-brand" href="#">Brand</a>
+                    </div>
+ 
+                    <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul className="nav navbar-nav navbar-right">
+                            <li><a href="#Link1">Link</a></li>
+                            <li><a href="#Link2">Link2</a></li>
+                            <li><a href="#Link3">Link3</a></li>
+                            <li><a href="#Link4">Link4</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
     );
 };
 
