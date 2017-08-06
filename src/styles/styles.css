@@ -35,3 +35,28 @@ body {
 .down-button i {
   color: white;
 }
+
+/*
+ * Products
+ */
+
+/* Products Row */
+.productsRow {
+  white-space: nowrap;
+}
+
+/* Products preview element */
+.productPreviewElement {
+  display: inline-block;
+  /* border-style: solid;
+  border-width: 0.5px;
+  border-color: blue; */
+}
+
+.productPreviewElement > img {
+  width: 150px;
+  height: 200px;
+  border-style: solid;
+  border-width: 0.3px;
+}
+

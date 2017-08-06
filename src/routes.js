@@ -3,6 +3,7 @@ import { Route, IndexRoute } from 'react-router';
 import App from './components/App';
 import HomePage from './components/home/HomePage';
 import AboutPage from './components/about/AboutPage';
+import ProductsPreviewPage from './components/products/products-preview/ProductsPreviewPage';
 
 export default (
     <Route path="/" component={App}>
@@ -11,5 +12,6 @@ export default (
         <Route path="course/:id" component={ManageCoursePage} />
         <Route path="course" component={ManageCoursePage} />*/}
         <Route path="about" component={AboutPage} />
+        <Route path="products-preview" component={ProductsPreviewPage} />
     </Route>
 );

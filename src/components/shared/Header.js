@@ -25,8 +25,8 @@ const Header = ({ loading }) => {
  
                     <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul className="nav navbar-nav navbar-right">
-                            <li><a href="#Link1">Link</a></li>
-                            <li><a href="#Link2">Link2</a></li>
+                            <li><IndexLink to="/" activeClassName="active">Home</IndexLink></li>
+                            <li><Link to="/products-preview" activeClassName="active">Products preview</Link></li>
                             <li><a href="#Link3">Link3</a></li>
                             <li><a href="#Link4">Link4</a></li>
                         </ul>

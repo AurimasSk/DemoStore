@@ -1,0 +1,8 @@
+1) Sukurti ItemViewPage.
+ 1.1) Atvaizduojami produktai lenteleje
+ 1.2) Virs produktu kazkoks teksto paragrafas
+ 1.3) Realizacija:
+     a) PageComponent - Su mapStateToPRops metodais
+     b) Viduje bus paragraph componentas ir ItemTable componentas
+     c) ItemTable komponentas sudarytas is ItemDetails
+     
