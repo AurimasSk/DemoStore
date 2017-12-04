@@ -1,6 +1,6 @@
-// This component handles the App template used on every page.
-import React, { PropTypes } from 'react';
-import Header from './shared/Header';
+import React from 'react';
+import PropTypes from 'prop-types';
+import Header from '../.././shared/Header';
 import { connect } from 'react-redux';
 
 class App extends React.Component {
@@ -17,11 +17,11 @@ class App extends React.Component {
 }
 
 App.propTypes = {
-    children: PropTypes.object.isRequired,
+    children: PropTypes.element,
     loading: PropTypes.bool.isRequired
 };
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
     return {
         loading: state.ajaxCallsInProgress > 0
     };

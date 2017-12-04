@@ -18,24 +18,21 @@ class HomePage extends React.Component {
                     </div>
                 </section>
 
-                <section className="row content-filler">
-                </section>
+                <section className="row content-filler"/>
 
                 <section className="row">
                     <div className="fill-screen fixed-attachment"
                         style={{ backgroundImage: 'url(../../resources/images/background.jpg)' }} />
                 </section>
 
-                <section className="row content-filler">
-                </section>
+                <section className="row content-filler"/>
 
                 <section className="row">
                     <div className="fill-screen fixed-attachment"
                         style={{ backgroundImage: 'url(../../resources/images/background.jpg)' }} />
                 </section>
 
-                <section className="row content-filler">
-                </section>
+                <section className="row content-filler"/>
             </div>
         );
     }

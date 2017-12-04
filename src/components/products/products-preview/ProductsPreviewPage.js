@@ -1,7 +1,9 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import ProductsGrid from './ProductsGrid';
+import { browserHistory } from 'react-router';
 import * as productActions from "../../../actions/productActions";
 
 class ProductsPreviewPage extends React.Component {
@@ -12,28 +14,39 @@ class ProductsPreviewPage extends React.Component {
       products: [],
       productsLoaded: false
     };
+
+    this.onProductClick = this.onProductClick.bind(this);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.actions.getAllProducts();
+  }
+
+  onProductClick(productId, event) {
+    event.preventDefault();
+    browserHistory.push({
+      pathname: '/product',
+      query: {
+        productId
+      }
+    });
   }
 
   render() {
     return (
       <div>
-        this.state.productsLoaded && <ProductsGrid products={this.state.products}/>
+        {this.props.products &&
+          <ProductsGrid
+            products={this.props.products}
+            onProductClick={this.onProductClick}
+          />}
       </div>
     );
   }
 }
 
-function mapStateToProps(state, ownProps) {
-  console.log("Return...", state);
-  this.setState({
-    products: state.products,
-    productsLoaded: state.products && state.products.length > 0
-  });
-  return {  
+function mapStateToProps(state) {
+  return {
     products: state.products
   };
 }
@@ -45,7 +58,8 @@ function mapDispatchToProps(dispatch) {
 }
 
 ProductsPreviewPage.propTypes = {
+  products: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductsPreviewPage);

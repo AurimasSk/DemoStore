@@ -1,4 +1,6 @@
 export default {
-    ajaxCallsInProgress: 0,
-    products: []
+  ajaxCallsInProgress: 0,
+  kazkas: "labas",
+  products: [],
+  currentProduct: {}
 };

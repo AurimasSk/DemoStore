@@ -1,34 +1,28 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-class ProductPreviewElement extends React.Component {
-  constructor(props, context) {
-    super(props, context);
-  }
+const ProductPreviewElement = ({ product, onProductClick }) => {
 
-
-  render() {
-    // val path = this
-    return (
-      <div className="productPreviewElement col-xs-3 text-center">
-        <img src={this.props.product.picturePath}/>
+  return (
+    <div className="productPreviewElement col-xs-3 text-center">
+      <img src={product.picturePath} />
+      <div>
         <div>
-          <div>
-            {this.props.product.name}
-          </div>
-          <div>
-            {this.props.product.price}
-          </div>
+          <a onClick={(event) => { onProductClick(product.id, event); }}>
+            {product.name}
+          </a>
+        </div>
+        <div>
+          {product.price}
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 ProductPreviewElement.propTypes = {
   product: PropTypes.object.isRequired,
-  picturePath: PropTypes.string,
-  name: PropTypes.string,
-  proce: PropTypes.string
+  onProductClick: PropTypes.func.isRequired
 };
 
 export default ProductPreviewElement;
