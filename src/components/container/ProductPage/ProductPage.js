@@ -8,24 +8,23 @@ class ProductPage extends React.Component {
   constructor(props, context) {
     super(props, context);
 
-    // this.state = {
-    //   product:
-    // };
+    this.state = {
+      product: Object.assign({}, props.product),
+    };
 
   }
 
-  componentWillMount() {
-    const productId = this.props.location.query.productId;
-    if (productId) {
-      this.props.productActions.getProductById(productId).then(product => {
-        console.log("Got product: ", product);
-      });
+  componentWillReceiveProps(nextProps) {
+    if (this.props.product.id != nextProps.product.id) {
+      // Necessary to populate from when existing product is loaded directly
+      this.setState({ product: Object.assign({}, nextProps.product) });
     }
   }
 
   render() {
     return (
       <div className="container-fluid productDetails">
+      https://medium.com/@joethedave/achieving-ui-animations-with-react-the-right-way-562fa8a91935  
         <div className="row">
           <div className="col-xs-2">
           </div>
@@ -80,9 +79,23 @@ class ProductPage extends React.Component {
   }
 }
 
-function mapStateToProps(state) {
+function getProductById(products, id) {
+  const product = products.filter(product => product.id == id);
+  if (product)
+    return product[0];
+  return null;
+}
+
+// ownProps represents any props passed to our component
+function mapStateToProps(state, ownProps) {
+  const productId = ownProps.params.id;
+  let product = { id: '', info: '', otherDetails: '' };
+  if (productId && state.products.length > 0) {
+    product = getProductById(state.products, productId);
+  }
+
   return {
-    product: state.product,
+    product: product,
   };
 }
 
@@ -94,7 +107,6 @@ function mapDispatchToProps(dispatch) {
 
 ProductPage.propTypes = {
   product: PropTypes.object.isRequired,
-  location: PropTypes.object.isRequired,
   productActions: PropTypes.object.isRequired
 };
 

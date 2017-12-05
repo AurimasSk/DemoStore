@@ -14,22 +14,10 @@ class ProductsPreviewPage extends React.Component {
       products: [],
       productsLoaded: false
     };
-
-    this.onProductClick = this.onProductClick.bind(this);
   }
 
   componentWillMount() {
     this.props.actions.getAllProducts();
-  }
-
-  onProductClick(productId, event) {
-    event.preventDefault();
-    browserHistory.push({
-      pathname: '/product',
-      query: {
-        productId
-      }
-    });
   }
 
   render() {
@@ -38,7 +26,6 @@ class ProductsPreviewPage extends React.Component {
         {this.props.products &&
           <ProductsGrid
             products={this.props.products}
-            onProductClick={this.onProductClick}
           />}
       </div>
     );

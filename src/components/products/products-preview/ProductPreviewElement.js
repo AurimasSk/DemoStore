@@ -1,16 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router';
 
-const ProductPreviewElement = ({ product, onProductClick }) => {
+const ProductPreviewElement = ({ product }) => {
 
   return (
     <div className="productPreviewElement col-xs-3 text-center">
       <img src={product.picturePath} />
       <div>
         <div>
-          <a onClick={(event) => { onProductClick(product.id, event); }}>
-            {product.name}
-          </a>
+          <Link to={'/product/' + product.id}>Products preview</Link>
         </div>
         <div>
           {product.price}
@@ -21,8 +20,7 @@ const ProductPreviewElement = ({ product, onProductClick }) => {
 };
 
 ProductPreviewElement.propTypes = {
-  product: PropTypes.object.isRequired,
-  onProductClick: PropTypes.func.isRequired
+  product: PropTypes.object.isRequired
 };
 
 export default ProductPreviewElement;

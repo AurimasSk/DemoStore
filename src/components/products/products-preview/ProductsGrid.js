@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import ProductsRow from './ProductsRow';
 import { onlyUpdateForKeys } from 'recompose';
 
-const ProductsGrid = onlyUpdateForKeys(['products'])(({ products, onProductClick}) => {
-  const rows = getRows(products, onProductClick);
+const ProductsGrid = onlyUpdateForKeys(['products'])(({ products}) => {
+  const rows = getRows(products);
 
   return (
     <div className="container-fluid">
@@ -14,13 +14,12 @@ const ProductsGrid = onlyUpdateForKeys(['products'])(({ products, onProductClick
 });
 
 ProductsGrid.propTypes = {
-  products: PropTypes.array.isRequired,
-  onProductClick: PropTypes.func.isRequired
+  products: PropTypes.array.isRequired
 };
 
 export default ProductsGrid;
 
-function getRows(products, onProductClick) {
+function getRows(products) {
   const rows = [];
   let productsInRow = [];
   const elementsInLine = 4;
@@ -32,7 +31,6 @@ function getRows(products, onProductClick) {
           <ProductsRow
             key={rows.length}
             productsRow={productsInRow}
-            onProductClick={onProductClick}
           />);
         productsInRow = [];
       }
@@ -44,7 +42,6 @@ function getRows(products, onProductClick) {
         <ProductsRow
           key={rows.length}
           productsRow={productsInRow}
-          onProductClick={onProductClick}
         />);
   }
 

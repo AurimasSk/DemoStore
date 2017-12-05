@@ -11,12 +11,9 @@ export const getRoutes = store => {
   return (
     <Route path="/" component={App}>
       <IndexRoute component={HomePage} />
-      {/*<Route path="courses" component={CoursesPage} />
-        <Route path="course/:id" component={ManageCoursePage} />
-        <Route path="course" component={ManageCoursePage} />*/}
       <Route path="about" component={AboutPage} />
       <Route path="products-preview" component={ProductsPreviewPage} />
-      <Route path="product" component={ProductPage} />
+      <Route path="product/:id" component={ProductPage} />
     </Route>
   );
 };

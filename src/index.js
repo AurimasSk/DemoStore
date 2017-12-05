@@ -20,7 +20,6 @@ getStoredState({}, (err, restoredState) => {
 
   if (!err) {
     store = configureStore(restoredState);
-    store = configureStore();
   } else {
     console.log('Failed to restore the Store state.'); // eslint-disable-line no-console
     store = configureStore();
@@ -34,13 +33,6 @@ getStoredState({}, (err, restoredState) => {
     </AppContainer>,
     document.getElementById('app')
   );
-
-  // render(
-  //   <Provider store={store}>
-  //     <Router history={browserHistory} routes={routes} />
-  //   </Provider>,
-  //   document.getElementById('app')
-  // );
 
   if (module.hot) {
     module.hot.accept('./components/main/Root', () => {
