@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 import App from './components/main/App';
-import HomePage from './components/home/HomePage';
-import AboutPage from './components/about/AboutPage';
-import ProductsPreviewPage from './components/products/products-preview/ProductsPreviewPage';
+import HomePage from './components/presentational/HomePage/HomePage';
+import AboutPage from './components/presentational/AboutPage/AboutPage';
+import ProductsPreviewPage from './components/container/ProductsPreviewPage/ProductsPreviewPage';
 import ProductPage from './components/container/ProductPage/ProductPage';
 
 

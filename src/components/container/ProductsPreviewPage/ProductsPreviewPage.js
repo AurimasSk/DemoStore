@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import ProductsGrid from './ProductsGrid';
-import { browserHistory } from 'react-router';
+import ProductsGrid from '../../presentational/ProductsPreviewElements/ProductsGrid';
 import * as productActions from "../../../actions/productActions";
 
 class ProductsPreviewPage extends React.Component {
